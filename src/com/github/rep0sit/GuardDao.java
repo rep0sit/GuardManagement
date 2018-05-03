@@ -41,7 +41,7 @@ public class GuardDao {
 	
 	
 	@SuppressWarnings("unchecked")
-	public Set<Guard> getAllguards(){
+	public Set<Guard> getAllGuards(){
 		
 		Set<Guard> guardSet = null;
 		
@@ -74,13 +74,20 @@ public class GuardDao {
 
 
 	public Guard getGuard(int id) {
-		// TODO Auto-generated method stub
+		Set<Guard> guards = getAllGuards();
+		for(Guard guard : guards) {
+			if(guard.getId() == id) {
+				return guard;
+			}
+		}
 		return null;
 	}
 
 
 	public int addGuard(Guard guard) {
-		// TODO Auto-generated method stub
-		return 0;
+		Set<Guard> guardList = getAllGuards();
+		if(guardList.contains(guard)) {return 0;}
+		guardList.add(guard);
+		return 1;
 	}
 }
