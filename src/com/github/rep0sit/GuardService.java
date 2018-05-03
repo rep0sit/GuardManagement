@@ -61,13 +61,12 @@ public class GuardService {
 			@Context HttpHeaders httpHeaders,
 			@FormParam("email") String email,
 			@FormParam("password") String password){
-		if(gd.login(email, password).equals("SUCCESS_RESULT")){
-			
+//		if(gd.login(email, password).equals("SUCCESS_RESULT")){
 //			return Response.accepted().build();
-			return "Login war erfolgreich";
-		}
+//		}
 //		return Response.; //Verweis auf eine html-Seite
-		return "Login failed";
+
+		return gd.login(email, password);
 	}
 
 	@OPTIONS
