@@ -71,4 +71,16 @@ public class GuardDao {
 		catch(IOException e) {e.printStackTrace();}
 		
 	}
+
+
+	public Guard getGuard(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public int addGuard(Guard guard) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
