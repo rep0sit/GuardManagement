@@ -15,29 +15,27 @@ public class GuardDao {
 	@SuppressWarnings("unchecked")
 	public void register(Guard guard){
 		Set<Guard> guardSet = null;
+		
 		try {
 			File file = new File(FILE_NAME);
-			if(!file.exists()) {
-				
-				guardSet = new HashSet<Guard>();	
+			if (!file.exists()) {
+
+				guardSet = new HashSet<Guard>();
 				guardSet.add(guard);
 				saveguardList(guardSet);
-			}else {
-				
-				
+			} else {
 				ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 				guardSet = (Set<Guard>) ois.readObject();
 				ois.close();
-			
+
 				guardSet.add(guard);
 				saveguardList(guardSet);
-			}	
-				
-			}catch(IOException e) {
-				e.printStackTrace();
-			}catch(ClassNotFoundException e) {
-				e.printStackTrace();
 			}
+
+		} 
+		
+		catch (IOException e) {e.printStackTrace();} 
+		catch (ClassNotFoundException e) {e.printStackTrace();}
 		
 	}
 	

@@ -17,15 +17,26 @@ public class Guard implements Serializable{
 	private String nachname;
 	private String email;
 	private String password;
+	private int id;
 	
-	public Guard(String vorname, String nachname, String email, String password) {
+	public Guard(String vorname, String nachname, String email, String password, int id) {
 		super();
+		this.id = id;
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.email = email;
 		this.password = password;
 	}
 
+	
+	public int getId() {
+		return id;
+	}
+	@XmlElement
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getVorname() {
 		return vorname;
 	}
