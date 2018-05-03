@@ -69,12 +69,17 @@ public class GuardService {
 		return gd.login(email, password);
 	}
 
+	@POST
+	@Path("/login/logout")
+	@Produces(MediaType.TEXT_PLAIN)
+	public void logout(){
+		gd.logout();
+	}
+	
 	@OPTIONS
 	@Path("/guards")
 	@Produces(MediaType.APPLICATION_XML)
 	public String getSupportedOperations() {
 		return "<operations>GET, PUT, POST, DELETE</operations>";
 	}
-	
-	
 }

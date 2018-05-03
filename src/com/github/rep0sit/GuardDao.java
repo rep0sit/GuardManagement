@@ -1,9 +1,12 @@
 package com.github.rep0sit;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import javax.ws.rs.core.Response;
 
 public class GuardDao {
 
@@ -45,4 +48,7 @@ public class GuardDao {
 		return FAILURE_LOGIN;		
 	}
 	
+	public void logout(){
+		Response.seeOther( URI.create("../guards")).build();
+	}
 }
