@@ -22,15 +22,6 @@ public class GuardService {
 	private static final String SUCCESS_RESULT = "<result>success</result>";
 	private static final String FAILURE_RESULT = "<result>failure</result>";
 
-	@POST
-	@Path("/guards")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void register(@PathParam("guard") Guard guard) {
-
-		gd.register(guard);
-
-	}
-
 	@GET
 	@Path("/guards")
 	@Produces(MediaType.APPLICATION_XML)
@@ -64,7 +55,9 @@ public class GuardService {
 //	@Path("/guards")
 //	@Produces(MediaType.APPLICATION_JSON)
 //	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//	public 
+//	public postLogin(String email, String password){
+//		
+//	}
 	
 
 	@OPTIONS
