@@ -17,7 +17,7 @@ public class GuardService {
 	
 
 	@POST
-	@Path("/registerGuard")
+	@Path("/guards")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void register(@PathParam("guard")Guard guard) {
 			

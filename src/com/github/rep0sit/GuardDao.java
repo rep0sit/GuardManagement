@@ -48,8 +48,8 @@ public class GuardDao {
 		Set<Guard> guardSet = null;
 		
 		try {
-			File file = new File(FILE_NAME);
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+			//File file = new File(FILE_NAME);
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME));
 			guardSet = (Set<Guard>) ois.readObject();
 			ois.close();
 
