@@ -1,23 +1,37 @@
 package com.github.rep0sit;
 
 
+import java.util.Set;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
 
 @Path("/GuardService")
 public class GuardService {
 	GuardDao gd = new GuardDao();
 	
+	
+
 	@POST
-	@Path("{vorname},{nachname},{email},{password}")
-	public void register(@PathParam("vorname")String vorname, 
-			@PathParam("name")String nachname, 
-			@PathParam("email")String email, 
-			@PathParam("password")String password){
-		
-		Guard ng = new Guard(vorname, nachname, email, password);
-		gd.register(ng);
+	@Path("/registerGuard")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void register(@PathParam("guard")Guard guard) {
+			
+			gd.register(guard);
 		
 	}
+	
+	
+	
+	@GET
+	@Path("/guards")
+	public Set<Guard> getAllGuards(){
+		return gd.getAllguards();
+	}
+	
+	
 }

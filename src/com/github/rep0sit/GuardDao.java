@@ -11,12 +11,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GuardDao {
-	
+	private static String FILE_NAME = "guards.dat";
 	@SuppressWarnings("unchecked")
 	public void register(Guard guard){
 		Set<Guard> guardSet = null;
 		try {
-			File file = new File("guards.dat");
+			File file = new File(FILE_NAME);
 			if(!file.exists()) {
 				
 				guardSet = new HashSet<Guard>();	
@@ -48,7 +48,7 @@ public class GuardDao {
 		Set<Guard> guardSet = null;
 		
 		try {
-			File file = new File("guards.dat");
+			File file = new File(FILE_NAME);
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 			guardSet = (Set<Guard>) ois.readObject();
 			ois.close();
@@ -63,7 +63,7 @@ public class GuardDao {
 
 	private void saveguardList(Set<Guard> guardList){
 		try {
-			File file = new File("guards.dat");
+			File file = new File(FILE_NAME);
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
 			oos.writeObject(guardList);
 			oos.close();
